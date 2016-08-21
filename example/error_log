@@ -1,0 +1,24 @@
+[20-Aug-2016 06:02:29 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 4
+[20-Aug-2016 06:08:31 UTC] PHP Warning:  require_once(autoloaderphp): failed to open stream: No such file or directory in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:08:31 UTC] PHP Fatal error:  require_once(): Failed opening required 'autoloaderphp' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:08:55 UTC] PHP Warning:  require_once(autoloaderphp): failed to open stream: No such file or directory in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:08:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'autoloaderphp' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:08:56 UTC] PHP Warning:  require_once(autoloaderphp): failed to open stream: No such file or directory in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:08:56 UTC] PHP Fatal error:  require_once(): Failed opening required 'autoloaderphp' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:09:01 UTC] PHP Warning:  require_once(autoloaderphp): failed to open stream: No such file or directory in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:09:01 UTC] PHP Fatal error:  require_once(): Failed opening required 'autoloaderphp' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 2
+[20-Aug-2016 06:09:19 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 6
+[20-Aug-2016 06:10:43 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 6
+[20-Aug-2016 06:10:44 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 6
+[20-Aug-2016 06:10:45 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 6
+[20-Aug-2016 06:10:58 UTC] PHP Fatal error:  Class 'WCPDigital\Html\FormHelper' not found in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 6
+[20-Aug-2016 06:15:13 UTC] PHP Catchable fatal error:  Argument 2 passed to WCPDigital\Html\FormHelper::submit() must be of the type array, string given, called in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 33 and defined in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/WCPDigital/Html/FormHelper.php on line 258
+[20-Aug-2016 06:46:10 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'You must start a PHP session to use CSRF tokens.' in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/WCPDigital/Html/FormHelper.php:496
+Stack trace:
+#0 /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php(10): WCPDigital\Html\FormHelper->validateToken('my_custom_token', NULL)
+#1 {main}
+  thrown in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/WCPDigital/Html/FormHelper.php on line 496
+[21-Aug-2016 02:09:03 UTC] PHP Fatal error:  Call to undefined method WCPDigital\Html\FormHelper::email() in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/index.php on line 51
+[21-Aug-2016 02:10:20 UTC] PHP Fatal error:  Cannot redeclare WCPDigital\Html\FormHelper::password() in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/WCPDigital/Html/FormHelper.php on line 160
+[21-Aug-2016 02:34:39 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/example/index.php on line 97
+[21-Aug-2016 03:03:40 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/wcpdigitalcom/public_html/phpHtmlFormHelper/example/index.php on line 30
