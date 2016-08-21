@@ -472,7 +472,7 @@ class FormHelper
 	}
 	
 	/**
-	* Create a CSFR Token
+	* Create a CSRF Token
 	* Generates a unique key and, optionally, stores it in the session.
 	*
 	* @return string 
@@ -491,7 +491,7 @@ class FormHelper
 	}
 	
 	/**
-	* Get CSFR Token
+	* Get CSRF Token
 	*
 	* @return string 
 	*/
@@ -509,7 +509,7 @@ class FormHelper
 	}
 	
 	/**
-	* Validate a CSFR Token
+	* Validate a CSRF Token
 	* Compare a value against the token stored in the session.
 	*
 	* @return bool 
