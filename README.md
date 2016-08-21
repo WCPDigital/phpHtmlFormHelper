@@ -1,4 +1,4 @@
-[php Html Form Helper] - A light-weight HTML5 form generator and validator.
+#php Html Form Helper - A light-weight HTML5 form generator and validator.
 ================================
 
 ** An easy to use, compact and flexible HTML5 form generator and validator built in php. Works well with bootstrap and jQuery validation.
