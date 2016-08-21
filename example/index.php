@@ -8,7 +8,14 @@ $form = new FormHelper();
 
 $errors = [];
 
-$formData = [];
+$formData = [
+	'username' => ''
+	,'email' => ''
+	,'password' => ''
+	,'country' => 'AU'
+	,'publishers' => []	
+	,'media' => ''	
+];
 
 if( $form->isPost() ){
 	
@@ -21,8 +28,9 @@ if( $form->isPost() ){
 		'username' => $form->request('username','')	
 		,'email' => $form->request('email','')	
 		,'password' => $form->request('password','')
-		,'country' => $form->request('country','')	
-		,'options' => $form->request('options','')	
+		,'country' => $form->request('country','')
+		,'publishers' => $form->request('publishers','')
+		,'media' => $form->request('media','')
 	];
 
 	$cleanData = $form->sanitizeData( $formData );
@@ -96,7 +104,7 @@ if( $form->isPost() ){
 						<div class="form-group">
 							<?php echo $form->label('username', 'Username', ['class'=>'control-label col-sm-4'] ); ?>
 							<div class="col-sm-8">
-								<?php echo $form->text('username','',[
+								<?php echo $form->text('username',$formData['username'],[
 									'class'=>'form-control text'
 									,'placeholder'=>'JBlogs123'
 									,'required'=>'required'
@@ -107,7 +115,7 @@ if( $form->isPost() ){
 						<div class="form-group">
 							<?php echo $form->label('email', 'Email', ['class'=>'control-label col-sm-4'] ); ?>
 							<div class="col-sm-8">
-								<?php echo $form->email('email','',[
+								<?php echo $form->email('email',$formData['email'],[
 									'class'=>'form-control email'
 									,'placeholder'=>'email@domain.com'
 									,'required'=>'required'
@@ -134,8 +142,11 @@ if( $form->isPost() ){
 										'' => 'Select country...'
 										,'AU' => 'Australia'
 										,'NZ' => 'New Zealand'
+										,'US' => 'United States'
+										,'UK' => 'United Kingdom'
+										,'CA' => 'Canada'
 									]
-									,''
+									,$formData['country']
 									,[
 										 'class'=>'form-control select'
 										,'required'=>'required'
@@ -145,41 +156,77 @@ if( $form->isPost() ){
 						
 						
 						<div class="form-group">
-							<?php echo $form->label('options', 'Options', ['class'=>'control-label col-sm-4'] ); ?>
+							<?php echo $form->label('publishers', 'Publishers', ['class'=>'control-label col-sm-4'] ); ?>
 							<div class="col-sm-8">
 								
 								<div class="checkbox">
 									<label>
-										<?php echo $form->checkbox('options[]','Marvel' ); ?>
+										<?php echo $form->checkbox('publishers[]','Marvel', $formData['publishers'] ); ?>
 										Marvel
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<?php echo $form->checkbox('options[]','DC' ); ?>
+										<?php echo $form->checkbox('publishers[]','DC', $formData['publishers'] ); ?>
 										DC
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<?php echo $form->checkbox('options[]','Dark Horse' ); ?>
+										<?php echo $form->checkbox('publishers[]','Dark Horse', $formData['publishers'] ); ?>
 										Dark Horse
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<?php echo $form->checkbox('options[]','Image' ); ?>
+										<?php echo $form->checkbox('publishers[]','Image', $formData['publishers'] ); ?>
 										Image
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<?php echo $form->checkbox('options[]','Other' ); ?>
+										<?php echo $form->checkbox('publishers[]','Other', $formData['options'] ); ?>
 										Other
+									</label>
+								</div>
+								
+							</div>
+						</div>
+						
+	
+						<div class="form-group">
+							<?php echo $form->label('media', 'Media', ['class'=>'control-label col-sm-4'] ); ?>
+							<div class="col-sm-8">
+								
+								<div class="radio">
+									<label>
+										<?php echo $form->radio('media[]','Comics', $formData['media'] ); ?>
+										Comics
+									</label>
+								</div>
+								
+								<div class="radio">
+									<label>
+										<?php echo $form->radio('media[]','Movies', $formData['media'] ); ?>
+										Movies
+									</label>
+								</div>
+								
+								<div class="radio">
+									<label>
+										<?php echo $form->radio('media[]','Games', $formData['media'] ); ?>
+										Games
+									</label>
+								</div>
+								
+								<div class="radio">
+									<label>
+										<?php echo $form->radio('media[]','All', $formData['media'] ); ?>
+										All
 									</label>
 								</div>
 								

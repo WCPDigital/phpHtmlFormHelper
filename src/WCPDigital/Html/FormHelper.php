@@ -163,14 +163,14 @@ class FormHelper
 	*
 	* @param string $name.
 	* @param string $value.
-	* @param bool $checked.
+	* @param mixed $checked.
 	* @param array $attrs.
 	*
 	* @return string.
 	*/	
-	public function checkbox($name, $value = '', $checked = false, array $attrs = array() )
+	public function checkbox($name, $value = '', $checked = array(), array $attrs = array() )
 	{
-		if( $checked ){
+		if( $this->isChecked( $value, $checked ) ){
 			$attrs['checked'] = 'checked';
 		}
 		return $this->input($name, $value, $attrs, self::INPUT_CHECKBOX );
@@ -181,14 +181,14 @@ class FormHelper
 	*
 	* @param string $name.
 	* @param string $value.
-	* @param bool $checked.
+	* @param mixed $checked.
 	* @param array $attrs.
 	*
 	* @return string.
 	*/	
-	public function radio($name, $value = '', $checked = false, array $attrs = array() )
+	public function radio($name, $value = '', $checked = array(), array $attrs = array() )
 	{
-		if( $checked ){
+		if( $this->isChecked( $value, $checked ) ){
 			$attrs['checked'] = 'checked';
 		}
 		return $this->input($name, $value, $attrs, self::INPUT_RADIO );
@@ -219,10 +219,13 @@ class FormHelper
 	*/	
 	public function select($name, array $list, $value = '',  array $attrs = array() )
 	{
-
 		$options = '';
 		foreach( $list as $key => $val ){
-			$options .= '<option value="'.$key.'" '.$this->isSelected( $value, $key ).' >'.$val."</option>\n";
+			$selected = '';
+			if( $this->isChecked( $value, $key ) ){
+				$selected = 'selected="selected"';
+			}
+			$options .= '<option value="'.$key.'" '. $selected .'>'.$val."</option>\n";
 		}
 		
 		$attributes = $this->attributes( $attrs );
@@ -287,22 +290,6 @@ class FormHelper
 	}	
 	
 	/**
-	* Attributes.
-	*
-	* @param array $attrs.
-	*
-	* @return string.
-	*/		
-	public function attributes( array $attrs  )
-	{
-		$attributes = array();
-		foreach( $attrs as $key => $val ){
-			$attributes[] = (string)$key . '="' . (string)$val . '"';
-		}		
-		return implode(' ', $attributes);
-	}
-	
-	/**
 	* Serialize.
 	*
 	* @param array $attrs.
@@ -317,39 +304,7 @@ class FormHelper
 		}		
 		return implode('&', $attributes);
 	}
-	
-	/**
-	* Is Selected.
-	*
-	* @param string $a.
-	* @param string $b.
-	*
-	* @return string.
-	*/		
-	public function isSelected( $a, $b  ){
-		if( $a == $b){
-			return ' selected="selected" ';
-		}
-		return '';
-	}
-	
-	/**
-	* Is Chcecked.
-	*
-	* @param string $value.
-	*
-	* @return string.
-	*/					
-	public function isChecked( $value )
-	{
-		$positives = array(true,'true','True','TRUE',1,'1','yes','YES','Y','checked','check' );
-		
-		if( in_array( $value, $positives, true ) )
-			return ' checked="checked" ';
-		
-		return '';
-	}
-	
+
 	/**
 	* Form php raw input.
 	*
@@ -575,7 +530,7 @@ class FormHelper
 			$k = $this->sanitize( $k, $maxlength, $allowed );
 			
 			if( is_array( $v ) ){
-				$v = $this->sanitizeArray( $v, $maxlength, $allowed );
+				$v = $this->sanitizeData( $v, $maxlength, $allowed );
 			}
 			
 			else{
@@ -648,6 +603,43 @@ class FormHelper
 		return $isValid;
 	}
 	
+
+	/**
+	* Attributes.
+	*
+	* @param array $attrs.
+	*
+	* @return string.
+	*/		
+	protected function attributes( array $attrs  )
+	{
+		$attributes = array();
+		foreach( $attrs as $key => $val ){
+			$attributes[] = (string)$key . '="' . (string)$val . '"';
+		}		
+		return implode(' ', $attributes);
+	}
+	
+	/**
+	* Is Checked.
+	*
+	* @param string $value.
+	* @param mixed $mixed.
+	*
+	* @return string.
+	*/		
+	protected function isChecked( $value, $mixed )
+	{
+		if( !is_array( $mixed ) ){
+			$mixed = array( $mixed );
+		}
+		foreach( $mixed as $v ){
+			if( $value == $v ){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
 
