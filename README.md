@@ -20,7 +20,10 @@ if( $form->isPost() ){
 	$email = $form->request('email','');
 	$password = $form->request('password','');
 	
-	if( !$form->validate( $cleanData['email'], FormHelper::RULE_EMAIL ) ){
+	$email = $form->sanitize( $email );
+	$password = $form->sanitize( $password );
+	
+	if( !$form->validate( $email, FormHelper::RULE_EMAIL ) ){
 		..
 	}
 	
