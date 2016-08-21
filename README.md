@@ -1,9 +1,9 @@
 #php Html Form Helper - A light-weight HTML5 form generator and validator.
 ================================
 
-** An easy to use, compact and flexible HTML5 form generator and validator built in php. Works well with bootstrap and jQuery validation.
+**An easy to use, compact and flexible HTML5 form generator and validator built in php. Works well with bootstrap and jQuery validation.
 
-### How to use the Form Helper
+###How to use the Form Helper
 
 ```php
 require_once '../src/autoload.php';
@@ -70,7 +70,7 @@ if( $form->isPost() ){
 </form>
 ```
 
-## License
+##License
 Copyright &copy; WCP Digital &amp; Patrick Purcell<br>
 Licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 <br>**Commercial use?** Go for it! You can include uiGlance in your commercial products.
