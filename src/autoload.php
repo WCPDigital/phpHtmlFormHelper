@@ -9,8 +9,12 @@
 * @link http://patrickpurcell.bio
 * @version 1.0.0 <20/08/2016>
 */
-function phpHtmlFormHelper( $className )
+function phpHtmlFormHelperAutoload( $className )
 {
+	// If we're not loading a class from this package, exit this function
+	if( strpos( $className, 'WCPDigital\\Html\\') !== 0 )
+		return;
+	
 	$className = str_replace('\\' , DIRECTORY_SEPARATOR, $className);
 	$path = dirname( __FILE__ ).DIRECTORY_SEPARATOR.$className.'.php';
 	if( is_readable( $path ) ){
@@ -19,4 +23,4 @@ function phpHtmlFormHelper( $className )
 	
 };
 
-spl_autoload_register('phpHtmlFormHelper');
+spl_autoload_register('phpHtmlFormHelperAutoload');
