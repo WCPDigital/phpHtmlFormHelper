@@ -598,6 +598,7 @@ class FormHelper
 				break;
 				
 			default:
+				$isValid = !empty($value);
 				break;
 		}
 		return $isValid;
